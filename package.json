@@ -9,8 +9,10 @@
     "playwright": "^1.54.1"
   },
   "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
     "@playwright/test": "^1.54.1",
-    "@types/node": "^24.0.13"
+    "@types/node": "^24.0.13",
+    "ts-node": "^10.9.2"
   },
   "keywords": [],
   "description": ""
