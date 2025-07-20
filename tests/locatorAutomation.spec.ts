@@ -87,3 +87,20 @@ test('extracting values', async({page}) =>{
 
     expect(SubmitButton).toEqual('Submit')
 })
+
+test('practicando assertions ', async({page}) =>{
+
+    //general asserion = compara valor izq con valor drcho ejemplo:
+    //const value = 5;
+    //expect(value).toEqual(6);
+    //en este caso va a dar un error ya que 5 no es igual a 6
+    
+    //locator assertion
+    await page.goto('https://www.reddit.com/')
+
+    const HomeButton = await page.locator('.text-14',{hasText:'Home'})
+
+    await expect(HomeButton).toHaveText('Home')
+
+
+})
