@@ -2,6 +2,9 @@ import { test, expect } from '@playwright/test';
 import { before, beforeEach } from 'node:test';
 import { text } from 'stream/consumers';
 import { NavigationPage } from '../tests/navigation'
+import { HomePage } from './Homepage';
+import { ResultsPage } from './ResultsPage';
+import productos from "./productos.json"
 
 
 test.beforeEach(async({page}) => {
@@ -9,18 +12,17 @@ test.beforeEach(async({page}) => {
         
 })
 
-test('Flujo menu > calzados > hombre > todos los calzados', async({page}) =>{
 
-    const navigateTo = new NavigationPage(page)
+productos.forEach(productos =>{
+test(`Usar barra de busqueda para buscar ${productos}`, async({page}) =>{
 
-    await navigateTo.CalzadoHombre()
+    const Search = new HomePage(page)
+    const Results = new ResultsPage(page)
     
-    await navigateTo.CalzadoMujer()
-
-    
-
+    await Search.OnSearchBar(productos)
+    await Results.ClickOnFirstProduct()
+    })
 })
-
 
 
 
