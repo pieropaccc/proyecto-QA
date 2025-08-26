@@ -5,13 +5,13 @@ test.beforeEach(async({page}) =>{
     await page.goto('https://books.toscrape.com/')
 })
 
-test('Obtener todos los titulos de los libros', async({page}) =>{
+test('Buscar Libro que contenga titulo (POSITIVO)', async({page}) =>{
 
     const homepage = new HomePage(page)
 
-    await homepage.BuscarLibro("Red")
+    const resultado = await homepage.BuscarLibro("Red")
 
-    await homepage.BuscarLibro("12313")
+
     /*const titulos = await page.locator('.product_pod h3 a').allTextContents()
 
     titulos.forEach((titulo, index) =>{
